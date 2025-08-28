@@ -7,4 +7,5 @@ export interface App {
   icon: string
   status: 'active' | 'inactive'
   createdAt: Date
+  favorite?: boolean
 }

@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 应用管理器
 
-## Getting Started
+一个使用 Next.js 和 Tailwind CSS 构建的现代化应用管理工具，帮助您管理和组织所有应用程序。
 
-First, run the development server:
+## ✨ 功能特性
+
+- 🚀 **现代化界面**: 使用 Tailwind CSS 构建的响应式设计
+- 📱 **响应式布局**: 支持桌面端和移动端
+- 🔍 **智能搜索**: 快速搜索和筛选应用
+- 📊 **双视图模式**: 支持网格和列表两种显示方式
+- 🏷️ **分类管理**: 按类别组织和筛选应用
+- ➕ **添加应用**: 简单易用的应用添加表单
+- ⚡ **状态管理**: 管理应用的活跃/非活跃状态
+- 🎨 **图标选择**: 丰富的表情符号图标库
+- 🔗 **快速访问**: 一键访问应用链接
+
+## 相关网站
+
+- [ai beauty rating](https://www.aibeautyrating.online/)
+- [mii maker online](https://miimaker.online/)
+- [em dash symbol](https://emdashsymbol.com/)
+
+## 🛠️ 技术栈
+
+- **前端框架**: Next.js 14 (App Router)
+- **样式**: Tailwind CSS
+- **图标**: Lucide React
+- **UI组件**: Headless UI
+- **语言**: TypeScript
+- **字体**: Inter (Google Fonts)
+
+## 🚀 快速开始
+
+### 安装依赖
+
+```bash
+npm install
+# 或
+yarn install
+# 或
+pnpm install
+```
+
+### 启动开发服务器
 
 ```bash
 npm run dev
-# or
+# 或
 yarn dev
-# or
+# 或
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看应用。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 构建生产版本
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📁 项目结构
 
-To learn more about Next.js, take a look at the following resources:
+```
+hacker/
+├── app/                    # Next.js App Router
+│   ├── globals.css        # 全局样式
+│   ├── layout.tsx         # 根布局
+│   └── page.tsx           # 主页面
+├── components/             # React 组件
+│   ├── AppCard.tsx        # 应用卡片组件
+│   ├── AddAppModal.tsx    # 添加应用模态框
+│   └── EditAppModal.tsx   # 编辑应用模态框
+├── types/                  # TypeScript 类型定义
+│   └── app.ts             # 应用相关类型
+├── package.json            # 项目依赖
+├── tailwind.config.js      # Tailwind CSS 配置
+├── tsconfig.json           # TypeScript 配置
+└── README.md               # 项目说明
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 使用方法
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. 查看应用
+- 应用以网格或列表形式显示
+- 使用右上角的按钮切换视图模式
 
-## Deploy on Vercel
+### 2. 搜索和筛选
+- 使用搜索框按名称或描述搜索应用
+- 使用分类与状态下拉菜单筛选应用
+- 通过排序选择“收藏优先/创建时间/名称”
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. 添加/编辑/收藏
+- 点击"添加应用"按钮新增
+- 在卡片菜单中选择"编辑"可修改应用信息
+- 点击卡片右上角星标进行收藏/取消收藏
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. 导入/导出
+- 顶部按钮支持导入/导出 JSON，用于备份与迁移
+
+## 🎨 自定义
+
+### 修改颜色主题
+编辑 `tailwind.config.js` 文件中的 `primary` 颜色配置：
+
+```javascript
+colors: {
+  primary: {
+    50: '#eff6ff',
+    500: '#3b82f6',  // 主色调
+    600: '#2563eb',
+    // ... 其他色阶
+  }
+}
+```
+
+### 添加新分类
+在 `app/page.tsx` 中修改 `categories` 数组：
+
+```typescript
+const categories = ['all', '工具', '开发', '娱乐', '生产力', '社交', '新分类']
+```
+
+### 自定义图标
+在 `components/AddAppModal.tsx` 中修改图标数组：
+
+```typescript
+['🚀', '💻', '🌐', '🎵', '📱', '🎮', '📚', '🔧', '🎨', '📊', '💡', '⭐', '🔥', '💎', '🌈', '🎯']
+```
+
+## 📱 响应式设计
+
+应用完全响应式，支持以下断点：
+- **移动端**: < 640px
+- **平板**: 640px - 1024px  
+- **桌面端**: > 1024px
+
+## 🔧 开发
+
+### 代码规范
+- 使用 TypeScript 进行类型检查
+- 遵循 ESLint 规则
+- 使用 Prettier 格式化代码
+
+### 组件开发
+- 所有组件都使用 TypeScript
+- 使用 Tailwind CSS 进行样式设计
+- 遵循 React Hooks 最佳实践
+
+## 📄 许可证
+
+MIT License
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📞 支持
+
+如果您有任何问题或建议，请创建 Issue 或联系开发者。

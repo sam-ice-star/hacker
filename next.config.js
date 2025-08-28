@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Next.js 14 中 appDir 已经是默认行为，无需在 experimental 中配置
+  // 使用默认配置；Next.js 14 的 App Router 默认启用
 }
 
 module.exports = nextConfig

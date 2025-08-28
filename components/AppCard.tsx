@@ -120,7 +120,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange }: App
     )
   }
 
-  // 网格视图
   return (
     <div 
       className="card hover:shadow-md transition-all duration-200 transform hover:-translate-y-1"
@@ -128,7 +127,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange }: App
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col h-full">
-        {/* 头部 */}
         <div className="flex items-start justify-between mb-4">
           <div className="w-16 h-16 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center text-3xl">
             {app.icon}
@@ -144,7 +142,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange }: App
           </div>
         </div>
 
-        {/* 内容 */}
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             <a 
@@ -170,7 +167,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange }: App
           </div>
         </div>
 
-        {/* 操作按钮 */}
         <div className="flex items-center space-x-2 mt-4 pt-4 border-t border-gray-100">
           <a
             href={app.url}

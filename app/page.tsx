@@ -35,7 +35,7 @@ export default function Home() {
       category: '娱乐',
       url: 'https://emdashsymbol.com/',
       icon: '🎵',
-      status: 'inactive',
+      status: 'active',
       createdAt: new Date('2024-01-03'),
     },
   ])

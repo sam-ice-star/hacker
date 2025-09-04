@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { ExternalLink, Edit, Trash2, MoreVertical, Globe, Calendar } from 'lucide-react'
 import { App } from '@/types/app'
 import { Menu } from '@headlessui/react'

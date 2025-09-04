@@ -42,17 +42,16 @@ export default function EditAppModal({ isOpen, onClose, onSave, categories, app 
     }
   }
 
-  const handleInput = (field: keyof App, value: string | Date) => {
+  const handleInput = (field: Exclude<keyof App, 'status' | 'createdAt' | 'favorite' | 'id'>, value: string) => {
     if (!formData) return
-    // 处理 status 的值类型
-    if (field === 'status' && (value === 'active' || value === 'inactive')) {
-      setFormData(prev => prev ? { ...prev, status: value } : prev)
-      if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
-      return
-    }
-
-    setFormData(prev => prev ? { ...prev, [field]: value as any } : prev)
+    setFormData(prev => prev ? { ...prev, [field]: value } : prev)
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
+  }
+
+  const handleStatusChange = (value: 'active' | 'inactive') => {
+    if (!formData) return
+    setFormData(prev => prev ? { ...prev, status: value } : prev)
+    if (errors.status) setErrors(prev => ({ ...prev, status: '' }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -117,8 +116,8 @@ export default function EditAppModal({ isOpen, onClose, onSave, categories, app 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">应用状态</label>
             <div className="flex space-x-4">
-              <label className="flex items-center"><input type="radio" value="active" checked={formData.status === 'active'} onChange={(e)=>handleInput('status', e.target.value)} className="mr-2 text-primary-600 focus:ring-primary-500" /><span className="text-sm text-gray-700">活跃</span></label>
-              <label className="flex items-center"><input type="radio" value="inactive" checked={formData.status === 'inactive'} onChange={(e)=>handleInput('status', e.target.value)} className="mr-2 text-primary-600 focus:ring-primary-500" /><span className="text-sm text-gray-700">非活跃</span></label>
+              <label className="flex items-center"><input type="radio" value="active" checked={formData.status === 'active'} onChange={(e)=>handleStatusChange('active')} className="mr-2 text-primary-600 focus:ring-primary-500" /><span className="text-sm text-gray-700">活跃</span></label>
+              <label className="flex items-center"><input type="radio" value="inactive" checked={formData.status === 'inactive'} onChange={(e)=>handleStatusChange('inactive')} className="mr-2 text-primary-600 focus:ring-primary-500" /><span className="text-sm text-gray-700">非活跃</span></label>
             </div>
           </div>
 

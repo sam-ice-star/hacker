@@ -14,7 +14,6 @@ interface AppCardProps {
 }
 
 export default function AppCard({ app, viewMode, onDelete, onStatusChange, onEdit }: AppCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
 
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat('zh-CN', {
@@ -28,8 +27,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange, onEdi
     return (
       <div 
         className="card hover:shadow-md transition-shadow duration-200"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex items-center space-x-4">
           <div className="flex-shrink-0">
@@ -133,8 +130,6 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange, onEdi
   return (
     <div 
       className="card hover:shadow-md transition-all duration-200 transform hover:-translate-y-1"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col h-full">
         <div className="flex items-start justify-between mb-4">

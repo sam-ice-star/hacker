@@ -40,7 +40,7 @@ export default function AddAppModal({ isOpen, onClose, onAdd, categories }: AddA
     try {
       new URL(string)
       return true
-    } catch (_) {
+    } catch {
       return false
     }
   }

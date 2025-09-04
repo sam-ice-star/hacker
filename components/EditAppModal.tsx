@@ -37,14 +37,21 @@ export default function EditAppModal({ isOpen, onClose, onSave, categories, app 
     try {
       new URL(string)
       return true
-    } catch (_) {
+    } catch {
       return false
     }
   }
 
-  const handleInput = (field: keyof App, value: any) => {
+  const handleInput = (field: keyof App, value: string | Date) => {
     if (!formData) return
-    setFormData(prev => prev ? { ...prev, [field]: value } : prev)
+    // 处理 status 的值类型
+    if (field === 'status' && (value === 'active' || value === 'inactive')) {
+      setFormData(prev => prev ? { ...prev, status: value } : prev)
+      if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
+      return
+    }
+
+    setFormData(prev => prev ? { ...prev, [field]: value as any } : prev)
     if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
   }
 

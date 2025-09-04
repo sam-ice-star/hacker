@@ -42,9 +42,7 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange, onEdi
             <div className="flex items-center space-x-2">
               <h3 className="text-lg font-semibold text-gray-900 truncate">
                 <a 
-                  href={app.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href={`/apps/${app.id}`}
                   className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
                 >
                   {app.name}
@@ -157,9 +155,7 @@ export default function AppCard({ app, viewMode, onDelete, onStatusChange, onEdi
         <div className="flex-1">
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             <a 
-              href={app.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href={`/apps/${app.id}`}
               className="hover:text-primary-600 transition-colors duration-200 cursor-pointer"
             >
               {app.name}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { Plus, Search, Grid, List, Settings, Star, StarOff, Download, Upload } from 'lucide-react'
+import { Plus, Search, Grid, List, Star, StarOff, Download, Upload } from 'lucide-react'
 import AppCard from '@/components/AppCard'
 import AddAppModal from '@/components/AddAppModal'
 import EditAppModal from '@/components/EditAppModal'
@@ -14,6 +14,7 @@ export default function Home() {
     { id: '1', name: 'ai beauty rating', description: 'Discover your beauty score instantly! Our free Beauty Score AI analyzes your face and reveals your attractiveness rating in seconds.', category: '工具', url: 'https://www.aibeautyrating.online/', icon: '🌐', status: 'active', createdAt: new Date('2024-01-01'), favorite: true },
     { id: '2', name: 'mii maker online', description: 'Create your perfect Mii avatar for free online. No downloads, no registration required. Easy-to-use Mii character creator in your browser.', category: '开发', url: 'https://miimaker.online/', icon: '💻', status: 'active', createdAt: new Date('2024-01-02'), favorite: false },
     { id: '3', name: 'em dash symbol', description: 'Em dash copy paste made simple! Instantly copy the em dash symbol with one click. Get detailed input guides for Windows, macOS, Android, iOS, plus HTML and CSS codes.', category: '娱乐', url: 'https://emdashsymbol.com/', icon: '🎵', status: 'active', createdAt: new Date('2024-01-03'), favorite: false },
+    { id: '4', name: 'squared symbol', description: 'Squared symbol copy paste made simple! Instantly copy the squared symbol with one click. Includes input guides for Windows, macOS, Android, iOS, plus HTML/CSS codes.', category: '工具', url: 'https://squaredsymbol.org/', icon: '🔣', status: 'active', createdAt: new Date('2024-01-04'), favorite: false },
   ]
 
   const [apps, setApps] = useState<App[]>(seed)
@@ -129,12 +130,12 @@ export default function Home() {
             <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="input-field max-w-xs">
               {['all', '工具', '开发', '娱乐', '生产力', '社交'].map(category => (<option key={category} value={category}>{category === 'all' ? '所有分类' : category}</option>))}
             </select>
-            <select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value as any)} className="input-field max-w-xs">
+            <select value={statusFilter} onChange={(e)=>setStatusFilter(e.target.value as 'all' | 'active' | 'inactive')} className="input-field max-w-xs">
               <option value="all">全部状态</option>
               <option value="active">仅活跃</option>
               <option value="inactive">仅非活跃</option>
             </select>
-            <select value={sortBy} onChange={(e)=>setSortBy(e.target.value as any)} className="input-field max-w-xs">
+            <select value={sortBy} onChange={(e)=>setSortBy(e.target.value as 'favorite' | 'createdAt' | 'name')} className="input-field max-w-xs">
               <option value="favorite">按收藏优先</option>
               <option value="createdAt">按创建时间</option>
               <option value="name">按名称</option>

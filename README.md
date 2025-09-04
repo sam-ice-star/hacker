@@ -19,6 +19,7 @@
 - [ai beauty rating](https://www.aibeautyrating.online/)
 - [mii maker online](https://miimaker.online/)
 - [em dash symbol](https://emdashsymbol.com/)
+- [squared symbol](https://squaredsymbol.org/)
 
 ## 🛠️ 技术栈
 

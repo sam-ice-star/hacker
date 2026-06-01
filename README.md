@@ -20,6 +20,7 @@
 - [mii maker online](https://miimaker.online/)
 - [em dash symbol](https://emdashsymbol.com/)
 - [squared symbol](https://squaredsymbol.org/)
+- [AVIF Converter](https://avif2jpg/)
 
 ## 🛠️ 技术栈
 
